@@ -18,6 +18,8 @@
 		console.log(results.data);
 	})
 
+  // export let name;
+
 </script>
 
 <section class="events bg-slate-100 py-10">
@@ -48,7 +50,9 @@
         </div>
       {/each}
     </div>
-    
+
+    <!-- { name } -->
+
   </div>
 </section>
 
