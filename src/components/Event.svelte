@@ -52,8 +52,6 @@
   </div>
 </section>
 
-{ $store.prod }
-
 <style>
 
 </style>
