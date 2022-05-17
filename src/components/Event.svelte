@@ -12,7 +12,7 @@
   let events = [];
 
   onMount(async() => {
-		const response = await fetch("http://localhost:1337/api/events?populate%5Bimage_description%5D%5Bpopulate%5D=*&populate%5Bimage_cover%5D%5Bpopulate%5D=*&populate%5Bdocument%5D%5Bpopulate%5D=*&populate%5Bphoto_gallery%5D%5Bpopulate%5D=*&populate%5Btimeline%5D%5Bpopulate%5D=*")
+		const response = await fetch($store.prod + "/api/events?populate%5Bimage_description%5D%5Bpopulate%5D=*&populate%5Bimage_cover%5D%5Bpopulate%5D=*&populate%5Bdocument%5D%5Bpopulate%5D=*&populate%5Bphoto_gallery%5D%5Bpopulate%5D=*&populate%5Btimeline%5D%5Bpopulate%5D=*")
 		const results = await response.json();
 		events = results.data;
 		console.log(results.data);
@@ -28,7 +28,7 @@
       {#each events as event, index}
         <div class="card bg-white rounded-lg overflow-hidden pb-10">
           <a href="events/{ event.id }">
-            <img class="h-72 object-cover" src="{ $store.dev + event.attributes.image_cover.data.attributes.url }" alt="">
+            <img class="h-72 object-cover" src="{ event.attributes.image_cover.data.attributes.url }" alt="">
           </a>
           <div class="content p-10 text-slate-500">
             <a href="events/{ event.id }" class="text-terziary hover:text-orange-800">
@@ -51,6 +51,8 @@
     
   </div>
 </section>
+
+{ $store.prod }
 
 <style>
 
